@@ -8,11 +8,18 @@ import typer
 # Local
 from utils import folder_count
 
-TIDAL_DIR = "/volumes/SD1T/MUSIC/TIDAL"
+TIDAL_DIR = "tmp"
+
+app = typer.Typer()
 
 
-def main():
-    for root, dirs, files in tqdm(walk(TIDAL_DIR), total=folder_count(TIDAL_DIR)):
+@app.command()
+def main(music_folder: str):
+    TIDAL_DIR = music_folder
+    if not music_folder:
+        return
+
+    for root, dirs, files in tqdm(walk(TIDAL_DIR), total=(folder_count(TIDAL_DIR) + 1)):
         for file in files:
             if file.startswith("."):
                 continue
@@ -20,11 +27,11 @@ def main():
             if file.endswith(".flac"):
                 path = Path(root, file)
 
-                album_name = path.parent.name.strip()
+                album_name = path.parents[-3].name.strip()
                 if album_name == "Various Artists":
                     continue
 
-                artist_name = path.parent.parent.name.strip()
+                artist_name = path.parents[-4].name.strip()
                 audio = FLAC(path)
 
                 if audio.get("artist"):
@@ -32,8 +39,9 @@ def main():
 
                 audio["artist"] = artist_name
                 audio["album"] = album_name
+
                 audio.save()
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    app()
