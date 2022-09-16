@@ -29,6 +29,7 @@ def main():
 
                 index = path.parents.index(main_dir)
 
+                # Album Name
                 album_name = path.parents[index - 1].name.strip()
 
                 audio["album"] = album_name
@@ -36,9 +37,10 @@ def main():
                 if audio.get("artist"):
                     audio["albumartist"] = audio["artist"]
 
+                # Artist Name
                 artist_name = path.parents[index - 1].name.strip()
+
                 if artist_name == "Various Artists":
-                    audio["artist"] = audio["album"]
                     continue
 
                 audio["artist"] = artist_name
