@@ -9,7 +9,7 @@ from tqdm import tqdm
 # Local
 from utils import folder_count
 
-TIDAL_DIR = "tmp"
+TIDAL_DIR = "/Volumes/SD1T/1"
 
 app = typer.Typer()
 
@@ -41,11 +41,12 @@ def main():
                 artist_name = path.parents[index - 1].name.strip()
 
                 if artist_name == "Various Artists":
+                    # artist_name = audio["album"]
                     continue
 
                 audio["artist"] = artist_name
 
-                print(main_dir, album_name, artist_name)
+                # print(main_dir, album_name, artist_name)
                 audio.save()
 
 
