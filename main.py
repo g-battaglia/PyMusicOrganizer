@@ -41,7 +41,6 @@ def main():
                 artist_name = path.parents[index - 1].name.strip()
 
                 if artist_name == "Various Artists":
-                    audio["artist"] = audio["album"]
                     continue
 
                 audio["artist"] = artist_name
