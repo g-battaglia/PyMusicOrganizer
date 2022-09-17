@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setup(
     name="PyMusicOrganizer",
-    version="0.0.1.2",
+    version="0.0.1.4",
     author="Giacomo Battaglia",
     author_email="battaglia.giacomo@yahoo.it",
     description="CLI tool to keep your music organized.",
