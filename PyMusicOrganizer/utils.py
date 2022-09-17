@@ -1,28 +1,31 @@
-import typer
+from os import walk
 
 from os import walk
 from mutagen.flac import FLAC
 from pathlib import Path
-from tqdm import tqdm
+from rich.progress import track
+
+def folder_count(path: str) -> int:
+    count1 = 0
+    for root, dirs, files in walk(path):
+        count1 += len(dirs)
+
+    return count1
 
 
-# Local
-from utils import folder_count
+def rename_album_and_artist_by_folder_name(main_path: str):
+    """
+    Rename the album and artist tags by the folder name. Inside the main path there should
+    be folder with the artist name and inside that folder there should be folders with the
+    album name. The album folder should contain the FLAC files.
 
-TIDAL_DIR = ""
+    Args:
+    -   main_path: the path to the folder containing the music
+    """
 
-app = typer.Typer()
+    main_dir = Path(main_path)
 
-
-@app.command()
-def main(main_path: str):
-    """Main function"""
-
-    TIDAL_DIR = main_path
-
-    main_dir = Path(TIDAL_DIR)
-
-    for root, dirs, files in tqdm(walk(TIDAL_DIR), total=(folder_count(TIDAL_DIR) + 1)):
+    for root, dirs, files in track(walk(main_path), total=(folder_count(main_path) + 1)):
         for file in files:
             if file.startswith("."):
                 continue
@@ -52,7 +55,3 @@ def main(main_path: str):
 
                 # print(main_dir, album_name, artist_name)
                 audio.save()
-
-
-if __name__ == "__main__":
-    app()

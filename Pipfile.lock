@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b23731062d9813dec4db506eeee75a2c0ba24c5d15728eced0d0a05f96239ff8"
+            "sha256": "cbfaf4dc99f899a0f0e7cc3f8c3032cc857d502f266786fd47e066d8145aadf3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,6 +46,13 @@
             "index": "pypi",
             "version": "==1.45.1"
         },
+        "pathlib": {
+            "hashes": [
+                "sha256:6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f",
+                "sha256:f35f95ab8b0f59e6d354090350b44a80a80635d22efdedfa84c7ad1cf0a74147"
+            ],
+            "version": "==1.0.1"
+        },
         "pygments": {
             "hashes": [
                 "sha256:56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1",
@@ -53,6 +60,10 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2.13.0"
+        },
+        "pymusicorganizer": {
+            "editable": true,
+            "path": "."
         },
         "rich": {
             "hashes": [
@@ -77,9 +88,7 @@
             "version": "==4.64.1"
         },
         "typer": {
-            "extras": [
-                "all"
-            ],
+            "extras": [],
             "hashes": [
                 "sha256:2d5720a5e63f73eaf31edaa15f6ab87f35f0690f8ca233017d7d23d743a91d73",
                 "sha256:54b19e5df18654070a82f8c2aa1da456a4ac16a2a83e6dcd9f170e291c56338e"

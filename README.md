@@ -2,7 +2,7 @@
 
 CLI tool to keep your music organized.
 
-## Installation
+## Local development
 
 ```bash
 pipenv install 

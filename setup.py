@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setup(
     name="PyMusicOrganizer",
-    version="0.0.1.4",
+    version="0.0.2",
     author="Giacomo Battaglia",
     author_email="battaglia.giacomo@yahoo.it",
     description="CLI tool to keep your music organized.",
@@ -25,10 +25,5 @@ setup(
     ],
     include_package_data=True,
     python_requires=">=3.9",
-    install_requires=[
-        "mutagen",
-        "pathlib",
-        "tqdm",
-        "typer",
-    ],
+    install_requires=["mutagen", "pathlib", "typer", "rich"],
 )
