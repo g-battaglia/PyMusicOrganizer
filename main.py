@@ -9,13 +9,17 @@ from tqdm import tqdm
 # Local
 from utils import folder_count
 
-TIDAL_DIR = "/Volumes/SD1T/1"
+TIDAL_DIR = ""
 
 app = typer.Typer()
 
 
 @app.command()
-def main():
+def main(main_path: str):
+    """Main function"""
+
+    TIDAL_DIR = main_path
+
     main_dir = Path(TIDAL_DIR)
 
     for root, dirs, files in tqdm(walk(TIDAL_DIR), total=(folder_count(TIDAL_DIR) + 1)):
