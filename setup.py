@@ -24,6 +24,6 @@ setup(
         "Typing :: Typed",
     ],
     include_package_data=True,
-    python_requires=">=3.9",
+    python_requires=">=3.8",
     install_requires=["mutagen", "pathlib", "typer", "rich"],
 )
